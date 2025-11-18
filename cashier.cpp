@@ -13,14 +13,15 @@ double calculateTotal(int count);
 struct MenuItem {
     string name;
     double price;
+    int quantity;
 };
 
 MenuItem menu[MENU_COUNT] = {
-    {"Burger", 15000},
-    {"Fries", 10000},
-    {"Soda", 5000},
-    {"Salad", 1200},
-    {"Ice Cream", 8000}
+    {"Burger", 15000, 0},
+    {"Fries", 10000, 0},
+    {"Soda", 5000, 0},
+    {"Salad", 1200, 0},
+    {"Ice Cream", 8000, 0}
 };
 MenuItem orders[MAX_ITEMS];
 int ordercount = 0;
@@ -30,14 +31,14 @@ int main() {
     string user;
     int choice;
     
-    cout << "=========================" << endl;
+    cout << "WELCOME TO xxx CAFE!" << endl;
     cout << "ENTER NAME (Nickname): ";
     cin >> user; 
     cin.ignore();
     
-    cout << "\n=========================\n";
-    cout << "WELCOME, " << user << "!" << endl;
-    cout << "WHAT WOULD YOU LIKE TO ORDER TODAY?" << endl;
+    cout << "\n==========================\n";
+    cout << "       WELCOME, " << user << "!" << endl;
+    cout << "WHAT WOULD YOU LIKE TO ORDER?" << endl;
     
     order(menucount);
     
@@ -54,7 +55,9 @@ int main() {
             cout << "\n\n\n\n=========================\n";
             cout << "ITEMS" << endl;
             for(int i = 0; i < ordercount; i++) {
-                cout << i + 1 << ". " << orders[i].name << " - Rp." << orders[i].price << endl;
+                cout << i + 1 << ". " << orders[i].name 
+                     << " x" << orders[i].quantity 
+                     << " - Rp." << orders[i].price * orders[i].quantity << endl;
             }
             cout << "=========================\n";
             cout << "TOTAL AMOUNT DUE: Rp." << calculateTotal(ordercount) << endl;
@@ -69,11 +72,11 @@ int main() {
 void order(int menucount) {
     int choice;
     
-    cout << "========= MENU =========\n";
+    cout << "\n========== MENU ==========\n";
     for(int i = 0; i < menucount; i++) {
         cout << i + 1 << ". " << menu[i].name << " - Rp." << menu[i].price << endl;
     }
-    cout << "=========================\n";
+    cout << "==========================\n";
     cout << "SELECT: ";
     cin >> choice;
     cin.ignore();
@@ -82,25 +85,44 @@ void order(int menucount) {
         cout << "INVALID ORDER!\n";
         return;
     }
-    
-    orders[ordercount].name = menu[choice - 1].name;
-    orders[ordercount].price = menu[choice - 1].price;
+
+    string selectedName = menu[choice - 1].name;
+    double selectedPrice = menu[choice - 1].price;
+
+    for (int i = 0; i < ordercount; i++) {
+        if (orders[i].name == selectedName) {
+            orders[i].quantity++;
+            cout << "ADDED ANOTHER " << selectedName << "!\n";
+            return;
+        }
+    }
+
+    orders[ordercount].name = selectedName;
+    orders[ordercount].price = selectedPrice;
+    orders[ordercount].quantity = 1;
     ordercount++;
-    cout << "YOUR ORDER IS ADDED!\n";
+
+    cout << "NEW ITEM ADDED!\n";
 }
 
 void remove(int count) {
     int del;
-    
+
     cout << "SELECT ITEM NUMBER TO REMOVE: ";
     cin >> del;
     cin.ignore();
-    
+
     if(del > count || del < 1) {
         cout << "INVALID\n";
         return;
     }
-    
+
+    if (orders[del - 1].quantity > 1) {
+        orders[del - 1].quantity--;
+        cout << "QUANTITY DECREASED!\n";
+        return;
+    }
+
     cout << "ITEM REMOVED!\n";
     for(int i = del - 1; i < count - 1; i++) {
         orders[i] = orders[i+1];
@@ -112,13 +134,15 @@ int view(int count) {
     int choice;
     double totalPrice = calculateTotal(ordercount);
     
-    cout << "========= CART =========\n";
+    cout << "\n========== CART ==========\n";
     for(int i = 0; i < count; i++) {
-        cout << i + 1 << ". " << orders[i].name << " - Rp." << orders[i].price << endl;
+        cout << i + 1 << ". " << orders[i].name 
+             << " x" << orders[i].quantity 
+             << " - Rp." << orders[i].price * orders[i].quantity << endl;
     }
-    cout << "========================\n";
+    cout << "==========================\n";
     cout << "TOTAL: Rp." << totalPrice << endl;
-    cout << "========================\n";
+    cout << "==========================\n";
     cout << "1. ORDER MORE\n";
     cout << "2. REMOVE ITEM\n";
     cout << "3. CHECKOUT\n";
@@ -132,7 +156,7 @@ int view(int count) {
 double calculateTotal(int count) {
     double total = 0;
     for(int i = 0; i < count; i++) {
-        total += orders[i].price;
+        total += orders[i].price * orders[i].quantity;
     }
     return total;
 }
