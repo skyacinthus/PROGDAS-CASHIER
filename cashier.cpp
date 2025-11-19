@@ -62,7 +62,7 @@ int main(){
             cout << "SUBTOTAL: Rp." << calculateTotal() << endl;
             cout << "TAX (10%): Rp." << tax << endl;
             cout << "=========================\n";
-            cout << "TOTAL AMOUNT DUE: Rp." << calculateTotal() + tax << endl;
+            cout << "TOTAL AMOUNT: Rp." << calculateTotal() + tax << endl;
             cout << "THANK YOU FOR YOUR ORDER, " << customer << "!" << endl;
             break;
         }
@@ -100,6 +100,7 @@ void order(){
 }
 
 void removeItem(){
+    int numbering[5];
     int choice;
     int count = 1;
 
@@ -107,6 +108,7 @@ void removeItem(){
     for (int i = 0; i < MENU_COUNT; i++){
         if (menu[i].quantity > 0) {
             cout << count << ". " << menu[i].name << " (x" << menu[i].quantity << ")\n";
+            numbering[count - 1] = i;
             count++;
         }
     }
@@ -115,6 +117,8 @@ void removeItem(){
     cout << "SELECT ITEM TO REMOVE: ";
     cin >> choice;
     cin.ignore();
+
+    choice = numbering[choice - 1] + 1;
 
     if (choice < 1 || choice > MENU_COUNT || menu[choice - 1].quantity == 0){
         cout << "INVALID\n";
