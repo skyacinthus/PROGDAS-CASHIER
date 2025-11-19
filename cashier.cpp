@@ -101,11 +101,13 @@ void order(){
 
 void removeItem(){
     int choice;
+    int count;
 
     cout << "\n========== REMOVE ==========\n";
     for (int i = 0; i < MENU_COUNT; i++){
         if (menu[i].quantity > 0) {
-            cout << i + 1 << ". " << menu[i].name << " (x" << menu[i].quantity << ")\n";
+            cout << count << ". " << menu[i].name << " (x" << menu[i].quantity << ")\n";
+            count++;
         }
     }
     cout << "============================\n";
