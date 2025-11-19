@@ -48,8 +48,33 @@ int main(){
             removeItem();
         }
         else if (choice == 3){
+            char discountChoice;
+            string discountCode;
+            int discount = 0;
+
+            cout << "DO YOU HAVE A DISCOUT CODE? (Y/N): ";
+            cin >> discountChoice;
+            cin.ignore();
+            if (discountChoice == 'Y' || discountChoice == 'y'){
+                cout << "ENTER DISCOUNT CODE: ";
+                cin >> discountCode;
+                cin.ignore();
+                if (discountCode == "SALMAIMOET"){
+                    cout << "\n=========================\n";
+                    cout << "DISCOUNT CODE APPLIED! YOU GET 10% OFF YOUR TOTAL!" << endl;
+                    cout << "=========================\n";
+                    discount = calculateTotal() * 0.1;
+                }
+                else{
+                    cout << "\n=========================\n";
+                    cout << "INVALID DISCOUNT CODE!" << endl;
+                    cout << "=========================\n";
+                }
+            }
+
+            cout << "\nCHECKING OUT..." << endl;
             int tax = calculateTotal() * 0.1;
-            cout << "\n\n\n=========================\n";
+            cout << "\n=========================\n";
             cout << "ITEMS" << endl;
 
             for (int i = 0; i < MENU_COUNT; i++){
@@ -61,9 +86,14 @@ int main(){
             cout << "=========================\n";
             cout << "SUBTOTAL: Rp." << calculateTotal() << endl;
             cout << "TAX (10%): Rp." << tax << endl;
+
+            if (discount > 0){
+                cout << "DISCOUNT: -Rp." << discount << endl;
+            }
+
             cout << "=========================\n";
-            cout << "TOTAL AMOUNT: Rp." << calculateTotal() + tax << endl;
-            cout << "THANK YOU FOR YOUR ORDER, " << customer << "!" << endl;
+            cout << "TOTAL AMOUNT: Rp." << calculateTotal() + tax - discount << endl;
+            cout << "\nTHANK YOU FOR YOUR ORDER, " << customer << "!" << endl;
             break;
         }
         else if (choice == 4){
@@ -80,6 +110,7 @@ int main(){
 
 void order(){
     int choice;
+    int qty;
 
     cout << "\n========== MENU ==========\n";
     for (int i = 0; i < MENU_COUNT; i++){
@@ -95,7 +126,15 @@ void order(){
         return;
     }
 
-    menu[choice - 1].quantity++;
+    cout << "HOW MANY " << menu[choice - 1].name << "'s WOULD YOU LIKE TO ORDER? ";
+    cin >> qty;
+    cin.ignore();
+    if (qty < 1){
+        cout << "INVALID QUANTITY!\n";
+        return;
+    }
+
+    menu[choice - 1].quantity += qty;
     cout << "YOUR ORDER IS ADDED!\n";
 }
 
@@ -103,6 +142,7 @@ void removeItem(){
     int numbering[5];
     int choice;
     int count = 1;
+    int qty;
 
     cout << "\n========== REMOVE ==========\n";
     for (int i = 0; i < MENU_COUNT; i++){
@@ -124,8 +164,15 @@ void removeItem(){
         cout << "INVALID\n";
         return;
     }
+    cout << "HOW MANY " << menu[choice - 1].name << "'s WOULD YOU LIKE TO REMOVE? ";
+    cin >> qty;
+    cin.ignore();
+    if (qty < 1){
+        cout << "INVALID QUANTITY!\n";
+        return;
+    }
 
-    menu[choice - 1].quantity--;
+    menu[choice - 1].quantity -= qty;
     cout << "ITEM REMOVED!\n";
 }
 
