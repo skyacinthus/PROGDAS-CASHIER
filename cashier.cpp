@@ -16,11 +16,11 @@ struct MenuItem{
 };
 
 MenuItem menu[MENU_COUNT] = {
-    {"Burger", 15000, 0},
-    {"Fries", 10000, 0},
-    {"Soda", 5000, 0},
-    {"Salad", 12000, 0},
-    {"Ice Cream", 8000, 0}
+    {"Burger", 15000, 0,},
+    {"Fries", 10000, 0,},
+    {"Soda", 5000, 0,},
+    {"Salad", 12000, 0,},
+    {"Ice Cream", 8000, 0,}
 };
 
 int main(){
@@ -51,6 +51,7 @@ int main(){
             char discountChoice;
             string discountCode;
             int discount = 0;
+            string paymentMethod;
 
             cout << "DO YOU HAVE A DISCOUT CODE? (Y/N): ";
             cin >> discountChoice;
@@ -93,10 +94,45 @@ int main(){
 
             cout << "=========================\n";
             cout << "TOTAL AMOUNT: Rp." << calculateTotal() + tax - discount << endl;
+
+            cout << "HOW WOULD YOU LIKE TO PAY? (CASH/CARD/QRIS): ";
+            cin >> paymentMethod;
+            cin.ignore();   
+
+            if (paymentMethod == "CASH" || paymentMethod == "cash"){
+                double cash;
+                cout << "ENTER CASH AMOUNT: Rp.";
+                cin >> cash;
+                cin.ignore();
+
+                if (cash < calculateTotal() + tax - discount){
+                    cout << "INSUFFICIENT CASH!" << endl;
+                    continue;
+                }
+                else{
+                    cout << "CHANGE: Rp." << cash - (calculateTotal() + tax - discount) << endl;
+                }
+            }
+            else if (paymentMethod == "CARD" || paymentMethod == "card" || paymentMethod == "QRIS" || paymentMethod == "qris"){
+                cout << "PROCESSING PAYMENT..." << endl;
+                cout << "PAYMENT SUCCESSFUL!" << endl;
+            }
+            else{
+                cout << "INVALID PAYMENT METHOD!" << endl;
+                continue;
+            }
+
+    
             cout << "\nTHANK YOU FOR YOUR ORDER, " << customer << "!" << endl;
             break;
         }
         else if (choice == 4){
+            for (int i = 0; i < MENU_COUNT; i++){
+                menu[i].quantity = 0;
+            }
+            cout << "CART CLEARED!\n";
+        }
+        else if (choice == 5){
             cout << "THANK YOU, " << customer << "! SEE YOU NEXT TIME!" << endl;
             break;
         }
@@ -193,7 +229,8 @@ int view() {
     cout << "1. ORDER MORE\n";
     cout << "2. REMOVE ITEM\n";
     cout << "3. CHECKOUT\n";
-    cout << "4. EXIT\n";
+    cout << "4. CLEAR CART\n";
+    cout << "5. EXIT\n";
     cout << "SELECT: ";
     cin >> choice;
     cin.ignore();
