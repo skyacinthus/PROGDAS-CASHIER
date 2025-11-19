@@ -101,7 +101,7 @@ void order(){
 
 void removeItem(){
     int choice;
-    int count;
+    int count = 1;
 
     cout << "\n========== REMOVE ==========\n";
     for (int i = 0; i < MENU_COUNT; i++){
