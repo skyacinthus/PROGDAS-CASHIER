@@ -24,16 +24,16 @@ MenuItem menu[MENU_COUNT] = {
 };
 
 int main(){
-    string user;
+    string customer;
     int choice;
 
     cout << "WELCOME TO xxx CAFE!" << endl;
     cout << "ENTER NAME (Nickname): ";
-    cin >> user;
+    cin >> customer;
     cin.ignore();
 
     cout << "\n==========================\n";
-    cout << "       WELCOME, " << user << "!" << endl;
+    cout << "       WELCOME, " << customer << "!" << endl;
     cout << "WHAT WOULD YOU LIKE TO ORDER?" << endl;
 
     order();
@@ -48,21 +48,30 @@ int main(){
             removeItem();
         }
         else if (choice == 3){
+            int tax = calculateTotal() * 0.1;
             cout << "\n\n\n=========================\n";
             cout << "ITEMS" << endl;
 
             for (int i = 0; i < MENU_COUNT; i++){
                 if (menu[i].quantity > 0) {
-                    cout << menu[i].name << " x" 
-                         << menu[i].quantity << " - Rp." 
-                         << menu[i].price * menu[i].quantity << endl;
+                    cout << menu[i].name << " x" << menu[i].quantity << " - Rp." << menu[i].price * menu[i].quantity << endl;
                 }
             }
 
             cout << "=========================\n";
-            cout << "TOTAL AMOUNT DUE: Rp." << calculateTotal() << endl;
-            cout << "THANK YOU FOR YOUR ORDER, " << user << "!" << endl;
+            cout << "SUBTOTAL: Rp." << calculateTotal() << endl;
+            cout << "TAX (10%): Rp." << tax << endl;
+            cout << "=========================\n";
+            cout << "TOTAL AMOUNT DUE: Rp." << calculateTotal() + tax << endl;
+            cout << "THANK YOU FOR YOUR ORDER, " << customer << "!" << endl;
             break;
+        }
+        else if (choice == 4){
+            cout << "THANK YOU, " << customer << "! SEE YOU NEXT TIME!" << endl;
+            break;
+        }
+        else{
+            cout << "INVALID OPTION!\n";
         }
     }
 
@@ -116,11 +125,13 @@ void removeItem(){
 
 int view() {
     int choice;
+    int count = 1;
 
     cout << "\n========== CART ==========\n";
     for (int i = 0; i < MENU_COUNT; i++){
         if (menu[i].quantity > 0) {
-            cout << i + 1 << ". " << menu[i].name << " x" << menu[i].quantity << " - Rp." << menu[i].price * menu[i].quantity << endl;
+            cout << count << ". " << menu[i].name << " x" << menu[i].quantity << " - Rp." << menu[i].price * menu[i].quantity << endl;
+            count++;
         }
     }
     cout << "==========================\n";
@@ -129,6 +140,7 @@ int view() {
     cout << "1. ORDER MORE\n";
     cout << "2. REMOVE ITEM\n";
     cout << "3. CHECKOUT\n";
+    cout << "4. EXIT\n";
     cout << "SELECT: ";
     cin >> choice;
     cin.ignore();
