@@ -8,9 +8,9 @@ Sistem memungkinkan pelanggan melakukan pemesanan, melihat total belanja, melaku
 
 ---
 ## 👥 Anggota Tim
-25/556038/TK/62703 | Ayesha Nabiha Arrizany H.
-25/555699/TK/62657 | Refa Rahmawati
-25/556423/TK/62761 | Salma Karimah Kamal
+* 25/556038/TK/62703 | Ayesha Nabiha Arrizany H.
+* 25/555699/TK/62657 | Refa Rahmawati
+* 25/556423/TK/62761 | Salma Karimah Kamal
 
 
 ## 📁 Struktur Proyek
