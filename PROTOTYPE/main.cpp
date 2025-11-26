@@ -7,11 +7,16 @@ Cashier cashier;  // Global backend instance
 void order();
 int view();
 
+
 int main() {
+    if (!cashier.loadMenuFromFile("Menu.txt")) {
+        cout << "Gagal memuat menu.txt. Pastikan file berada dalam folder yang sama.\n";
+        return 1;
+    }
     string customer;
     int choice;
     
-    cout << "WELCOME TO xxx!" << endl;
+    cout << "WELCOME TO DOPIYO DONUTS!" << endl;
     cout << "ENTER NAME (Nickname): ";
     getline(cin, customer);
     cashier.setCustomerName(customer);

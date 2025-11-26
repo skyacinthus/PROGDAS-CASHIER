@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 struct MenuItem {
@@ -13,132 +15,125 @@ struct MenuItem {
 
 class Cashier {
 private:
-    static const int MENU_COUNT = 5;
-    MenuItem menu[MENU_COUNT] = {
-        {"Burger", 15000, 0},
-        {"Fries", 10000, 0},
-        {"Soda", 5000, 0},
-        {"Salad", 12000, 0},
-        {"Ice Cream", 8000, 0}
-    };
+    vector<MenuItem> menu; 
     string customerName;
 
 public:
     Cashier() : customerName("") {}
-    
-    // Customer management
-    void setCustomerName(const string& name) {
-        customerName = name;
+
+    // Load menu from file (menu.txt)
+    bool loadMenuFromFile(const string& filename) {
+        menu.clear();
+
+        ifstream file(filename);
+        if (!file.is_open()) return false;
+
+        string line;
+        while (getline(file, line)) {
+            if (line.empty()) continue;
+
+            size_t pos = line.find(';');
+            if (pos == string::npos) continue;
+
+            string name = line.substr(0, pos);
+            double price = stod(line.substr(pos + 1));
+
+            menu.push_back({ name, price, 0 });
+        }
+
+        file.close();
+        return true;
     }
-    
-    string getCustomerName() const {
-        return customerName;
-    }
-    
+
+    // Customer
+    void setCustomerName(const string& name) { customerName = name; }
+    string getCustomerName() const { return customerName; }
+
     // Menu operations
-    int getMenuCount() const {
-        return MENU_COUNT;
-    }
-    
+    int getMenuCount() const { return menu.size(); }
+
     MenuItem getMenuItem(int index) const {
-        if (index >= 0 && index < MENU_COUNT) {
-            return menu[index];
-        }
-        return {"", 0, 0};
+        if (index >= 0 && index < menu.size()) return menu[index];
+        return { "", 0, 0 };
     }
-    
+
     string getMenuItemName(int index) const {
-        if (index >= 0 && index < MENU_COUNT) {
-            return menu[index].name;
-        }
+        if (index >= 0 && index < menu.size()) return menu[index].name;
         return "";
     }
-    
+
     double getMenuItemPrice(int index) const {
-        if (index >= 0 && index < MENU_COUNT) {
-            return menu[index].price;
-        }
-        return 0;
+        if (index >= 0 && index < menu.size()) return menu[index].price;
+        return 0.0;
     }
 
     bool addToOrder(int menuIndex, int quantity) {
-        if (menuIndex < 0 || menuIndex >= MENU_COUNT || quantity < 1) {
+        if (menuIndex < 0 || menuIndex >= menu.size() || quantity < 1)
             return false;
-        }
         menu[menuIndex].quantity += quantity;
         return true;
     }
-    
+
     bool removeFromOrder(int menuIndex, int quantity) {
-        if (menuIndex < 0 || menuIndex >= MENU_COUNT || quantity < 1) {
+        if (menuIndex < 0 || menuIndex >= menu.size() || quantity < 1)
             return false;
-        }
-        if (menu[menuIndex].quantity < quantity) {
+        if (menu[menuIndex].quantity < quantity)
             return false;
-        }
+
         menu[menuIndex].quantity -= quantity;
         return true;
     }
-    
+
     void clearCart() {
-        for (int i = 0; i < MENU_COUNT; i++) {
-            menu[i].quantity = 0;
-        }
+        for (auto& item : menu)
+            item.quantity = 0;
     }
-    
+
     vector<MenuItem> getCartItems() const {
         vector<MenuItem> items;
-        for (int i = 0; i < MENU_COUNT; i++) {
-            if (menu[i].quantity > 0) {
-                items.push_back(menu[i]);
-            }
-        }
+        for (const auto& it : menu)
+            if (it.quantity > 0) items.push_back(it);
         return items;
     }
-    
+
     bool isCartEmpty() const {
-        for (int i = 0; i < MENU_COUNT; i++) {
-            if (menu[i].quantity > 0) {
-                return false;
-            }
-        }
+        for (const auto& it : menu)
+            if (it.quantity > 0) return false;
         return true;
     }
-    
+
     double calculateSubtotal() const {
         double total = 0;
-        for (int i = 0; i < MENU_COUNT; i++) {
-            total += menu[i].price * menu[i].quantity;
-        }
+        for (const auto& it : menu)
+            total += it.price * it.quantity;
         return total;
     }
-    
+
     double calculateTax() const {
         return calculateSubtotal() * 0.1;
     }
-    
+
     double calculateDiscount(const string& code) const {
-        if (code == "SALMAIMOET") {
+        if (code == "SALMAIMOET" || code == "REFAIMOET" || code == "AYESHAIMOET")
             return calculateSubtotal() * 0.1;
-        }
         return 0;
     }
-    
+
     double calculateTotal(double discount = 0) const {
         return calculateSubtotal() + calculateTax() - discount;
     }
-    
-    // Payment
+
     bool validatePayment(const string& method, double amount, double totalDue) const {
         if (method == "CASH" || method == "cash") {
             return amount >= totalDue;
-        } else if (method == "CARD" || method == "card" || 
-                   method == "QRIS" || method == "qris") {
+        }
+        else if (method == "CARD" || method == "card" ||
+                 method == "QRIS" || method == "qris") {
             return true;
         }
         return false;
     }
-    
+
     double calculateChange(double paid, double totalDue) const {
         return paid - totalDue;
     }
