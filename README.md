@@ -2,7 +2,7 @@
 # 🍩 Dopiyo Donuts: Self-Service Cashier (Proyek Akhir Pemrograman Dasar)
 
 Dopiyo Donuts adalah **sistem kasir mandiri** yang dibuat sebagai proyek akhir mata kuliah *Pemrograman Dasar*.
-Proyek ini terdiri dari **versi prototipe (console)** serta **versi GUI** yang dibuat menggunakan **Qt Framework**.
+Proyek ini terdiri dari **versi console** serta **versi GUI** yang dibuat menggunakan **Qt Framework**.
 
 Sistem memungkinkan pelanggan melakukan pemesanan, melihat total belanja, melakukan pembayaran via QR, hingga mencetak nota.
 
@@ -24,13 +24,13 @@ Sistem memungkinkan pelanggan melakukan pemesanan, melihat total belanja, melaku
     └── Versi GUI menggunakan Qt Framework
 ```
 
-### **PROTOTYPE**
+### **DOPIYO-CONSOLE**
 
 * Implementasi C++ murni
 * Tanpa GUI
 * Menjadi dasar logika untuk versi final
 
-### **DOPIYO-FINAL**
+### **DOPIYO-GUI**
 
 * Aplikasi GUI lengkap menggunakan Qt
 * Versi final yang digunakan untuk presentasi
@@ -70,13 +70,26 @@ Fitur untuk mencetak nota ke dalam file **PDF**.
 
 ---
 
-## 🚀 Cara Menjalankan (Hanya Windows)
+## 🚀 Cara Menjalankan
 
-Saat ini, aplikasi GUI menghasilkan **eksekutabel PE32** yang hanya berjalan di Windows.
+### Console
+1. Unduh ZIP repository atau hanya folder **`DOPIYO-CONSOLE`**.
+2. Ekstrak ZIP.
+3. Masuk ke dalam folder.
+4. Jalankan file berikut:
+```
+Progdas-Final-Project.exe
+```
+
+
+### GUI (Hanya Windows)
+
+Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di Windows.
 
 1. Unduh ZIP repository atau hanya folder **`DOPIYO-FINAL`**.
 2. Ekstrak ZIP.
-3. Masuk ke dalam folder.
+3. Masuk ke dalam folder **`Build`**.
+3. Masuk ke dalam folder **`Desktop_Qt_6_10_0_MinGW_64_bit-Release`**.
 4. Jalankan file berikut:
 
 ```
@@ -84,7 +97,9 @@ Progdas-Final-Project.exe
 ```
 
 > ⚠️ **Catatan:**
-> Aplikasi hanya dapat dijalankan di **Windows** karena file executable dibuat menggunakan MinGW dan tidak dapat dieksekusi secara native di Linux atau macOS.
+> Aplikasi GUI hanya dapat dijalankan di **Windows** karena file executable dibuat menggunakan MinGW dan tidak dapat dieksekusi secara native di Linux atau macOS.
+
+---
 
 ## ▶️ Demo & Screenshots
 
