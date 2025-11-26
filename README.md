@@ -72,7 +72,7 @@ Fitur untuk mencetak nota ke dalam file **PDF**.
 
 ## 🚀 Cara Menjalankan
 
-### Console
+### **Console**
 1. Unduh ZIP repository atau hanya folder **`DOPIYO-CONSOLE`**.
 2. Ekstrak ZIP.
 3. Masuk ke dalam folder.
@@ -82,7 +82,7 @@ Progdas-Final-Project.exe
 ```
 
 
-### GUI (Hanya Windows)
+### **GUI (Hanya Windows)**
 
 Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di Windows.
 
@@ -98,6 +98,39 @@ Progdas-Final-Project.exe
 
 > ⚠️ **Catatan:**
 > Aplikasi GUI hanya dapat dijalankan di **Windows** karena file executable dibuat menggunakan MinGW dan tidak dapat dieksekusi secara native di Linux atau macOS.
+
+### **Menu Input (Console & GUI Version)**
+
+Baik versi console maupun GUI menggunakan file menu.txt sebagai sumber menu.
+
+Format file:
+
+```
+Nama Donut;Harga
+```
+
+Contoh:
+
+```
+Tripple Choco Boom;20000
+Tiramisu Lotus Ring;25000
+Matcha Red Bean;30000
+American Cheese Boom;20000
+Red Velvet Cheese Boom;25000
+```
+
+Cara Mengubah / Menambah Menu
+
+1. Buka file menu.txt
+2. Tambahkan baris baru dengan format yang sama:
+
+```
+Nama Produk;Harga
+```
+3. Simpan
+4. Jalankan ulang program
+
+Program akan secara otomatis memuat menu terbaru saat dijalankan. Tidak perlu mengedit kode C++ sama sekali.
 
 ---
 
