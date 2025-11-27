@@ -86,7 +86,7 @@ Progdas-Final-Project.exe
 
 Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di Windows.
 
-1. Unduh ZIP repository atau hanya folder **`DOPIYO-FINAL`**.
+1. Unduh ZIP repository atau hanya folder **`DOPIYO-GUI`**.
 2. Ekstrak ZIP.
 3. Masuk ke dalam folder **`Build`**.
 3. Masuk ke dalam folder **`Desktop_Qt_6_10_0_MinGW_64_bit-Release`**.
@@ -121,7 +121,7 @@ Red Velvet Cheese Boom;25000
 
 Cara Mengubah / Menambah Menu
 
-1. Buka file menu.txt
+1. Buka file Menu.txt
 2. Tambahkan baris baru dengan format yang sama:
 
 ```
