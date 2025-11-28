@@ -75,6 +75,20 @@ Fitur untuk mencetak nota ke dalam file **PDF**.
 
 ## 🚀 Cara Menjalankan
 
+### **CONSOLE**
+1. Pastikan Anda memiliki compiler C++ (contoh: g++).
+2. Pastikan sudah berada di Folder 'DOPIYO-CONSOLE' (cd DOPIYO-CONSOLE pada terminal).
+3. compile dengan command:
+
+```
+g++ main.cpp .cpp -o cashier
+```
+4. Jalankan program:
+
+```
+./cashier
+```
+
 ### **GUI (Hanya Windows)**
 
 Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di Windows.
