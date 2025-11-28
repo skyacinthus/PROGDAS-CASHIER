@@ -50,7 +50,7 @@ Fitur untuk menambahkan pesanan dari pelanggan berdasarkan menu yang tersedia.
 
 ### **F-03 — File Input for Menu**
 
-Fitur untuk memuat menu makanan dari file **`menu.txt`** sehingga menu dapat diperbarui tanpa mengubah kode.
+Fitur untuk memuat menu makanan dari file **`Menu.txt`** sehingga menu dapat diperbarui tanpa mengubah kode.
 
 ### **F-04 — View Total Order**
 
@@ -94,7 +94,7 @@ Progdas-Final-Project.exe
 
 ### **Menu Input (Console & GUI Version)**
 
-Baik versi console maupun GUI menggunakan file menu.txt sebagai sumber menu.
+Baik versi console maupun GUI menggunakan file Menu.txt sebagai sumber menu.
 
 Format file:
 
