@@ -17,10 +17,10 @@ Sistem memungkinkan pelanggan melakukan pemesanan, melihat total belanja, melaku
 
 ```
 .
-├── PROTOTYPE/
+├── DOPIYO-CONSOLE/
 │   └── Kode dasar tanpa GUI (versi console)
 │
-└── DOPIYO-FINAL/
+└── DOPIYO-GUI/
     └── Versi GUI menggunakan Qt Framework
 ```
 
@@ -35,6 +35,32 @@ Sistem memungkinkan pelanggan melakukan pemesanan, melihat total belanja, melaku
 * Aplikasi GUI lengkap menggunakan Qt
 * Versi final yang digunakan untuk presentasi
 * Berisi UI, pembacaan menu, dan fitur cetak PDF
+
+---
+
+## 🏗️ Teknologi yang Digunakan
+
+* **C++**
+* **Qt 6 Framework**
+* **MinGW 64-bit Compiler**
+* File handling (`Menu.txt`)
+* PDF printing dengan Qt
+
+---
+
+## 🍩 Tentang Proyek
+
+Proyek ini dibuat untuk tujuan pembelajaran dan mencakup:
+
+* Pengembangan GUI dengan Qt
+* Dasar-dasar pemrograman C++
+* File I/O
+* Pemrograman berbasis objek
+* Simulasi pembayaran
+* Pembuatan PDF
+* Perancangan antarmuka yang ramah pengguna
+
+Toko fiksi yang digunakan dalam sistem adalah **Dopiyo Donuts**.
 
 ---
 
@@ -68,25 +94,19 @@ Fitur untuk menampilkan nota setelah pembayaran dilakukan.
 
 Fitur untuk mencetak nota ke dalam file **PDF**.
 
+> ⚠️ **Catatan:**
+> Ketika menyimpan nota, pastikan bahwa pop-up " " muncul terlebih dahulu sebelum menutup terminal.
+
 ---
 
 ## 🚀 Cara Menjalankan
-
-### **Console**
-1. Unduh ZIP repository atau hanya folder **`DOPIYO-CONSOLE`**.
-2. Ekstrak ZIP.
-3. Masuk ke dalam folder.
-4. Jalankan file berikut:
-```
-Progdas-Final-Project.exe
-```
-
 
 ### **GUI (Hanya Windows)**
 
 Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di Windows.
 
-1. Unduh ZIP repository atau hanya folder **`DOPIYO-GUI`**.
+1. Buka "releases" github
+2. Unduh ZIP **`DOPIYO-GUI`**.
 2. Ekstrak ZIP.
 3. Masuk ke dalam folder **`Build`**.
 3. Masuk ke dalam folder **`Desktop_Qt_6_10_0_MinGW_64_bit-Release`**.
@@ -138,27 +158,3 @@ Program akan secara otomatis memuat menu terbaru saat dijalankan. Tidak perlu me
 
 
 ---
-
-## 🏗️ Teknologi yang Digunakan
-
-* **C++**
-* **Qt 6 Framework**
-* **MinGW 64-bit Compiler**
-* File handling (`menu.txt`)
-* PDF printing dengan Qt
-
----
-
-## 🍩 Tentang Proyek
-
-Proyek ini dibuat untuk tujuan pembelajaran dan mencakup:
-
-* Pengembangan GUI dengan Qt
-* Dasar-dasar pemrograman C++
-* File I/O
-* Pemrograman berbasis objek
-* Simulasi pembayaran
-* Pembuatan PDF
-* Perancangan antarmuka yang ramah pengguna
-
-Toko fiksi yang digunakan dalam sistem adalah **Dopiyo Donuts**.
