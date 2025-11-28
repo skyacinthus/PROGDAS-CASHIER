@@ -69,7 +69,7 @@ Fitur untuk menampilkan nota setelah pembayaran dilakukan.
 Fitur untuk mencetak nota ke dalam file **PDF**.
 
 > ⚠️ **Catatan:**
-> Ketika menyimpan nota, pastikan bahwa pop-up " " muncul terlebih dahulu sebelum menutup terminal.
+> Ketika menyimpan nota, pastikan bahwa pop-up "Nota saved as PDF" muncul terlebih dahulu sebelum menutup terminal.
 
 ---
 
@@ -81,10 +81,9 @@ Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di W
 
 1. Buka "releases" github
 2. Unduh ZIP **`DOPIYO-GUI`**.
-2. Ekstrak ZIP.
-3. Masuk ke dalam folder **`Build`**.
-3. Masuk ke dalam folder **`Desktop_Qt_6_10_0_MinGW_64_bit-Release`**.
-4. Jalankan file berikut:
+3. Ekstrak ZIP.
+4. Masuk ke dalam folder **`DOPIYO-GUI`**.
+5. Jalankan file berikut:
 
 ```
 Progdas-Final-Project.exe
@@ -106,11 +105,11 @@ Nama Donut;Harga
 Contoh:
 
 ```
-Tripple Choco Boom, 20000
-Tiramisu Lotus Ring, 25000
-Matcha Red Bean, 30000
-American Cheese Boom, 20000
-Red Velvet Cheese Boom, 25000
+Tripple Choco Boom,20000
+Tiramisu Lotus Ring,25000
+Matcha Red Bean,30000
+American Cheese Boom,20000
+Red Velvet Cheese Boom,25000
 ```
 
 Cara Mengubah / Menambah Menu
@@ -119,7 +118,7 @@ Cara Mengubah / Menambah Menu
 2. Tambahkan baris baru dengan format yang sama:
 
 ```
-Nama Produk, Harga
+Nama Produk,Harga
 ```
 3. Simpan
 4. Jalankan ulang program
