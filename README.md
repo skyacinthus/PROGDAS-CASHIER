@@ -130,6 +130,12 @@ Program akan secara otomatis memuat menu terbaru saat dijalankan. Tidak perlu me
 ## ▶️ Demo & Screenshots
 
 
+https://github.com/user-attachments/assets/fcd8480d-c1dd-44ad-9941-8e9dd1cd8c2a
+
+### PRINTED RECEIPT
+<img width="174" height="487" alt="image" src="https://github.com/user-attachments/assets/41953bb5-f5f9-464a-806e-358a1a4f7740" />
+
+
 ---
 
 ## 🏗️ Teknologi yang Digunakan
@@ -152,8 +158,6 @@ Proyek ini dibuat untuk tujuan pembelajaran dan mencakup:
 * Pemrograman berbasis objek
 * Simulasi pembayaran
 * Pembuatan PDF
-* Perancangan antarmuka yang ramah pengguna
-
-Toko fiksi yang digunakan dalam sistem adalah **Dopiyo Donuts**.
+* Perancangan UI yang ramah pengguna
 
 ---
