@@ -32,7 +32,7 @@ public:
         while (getline(file, line)) {
             if (line.empty()) continue;
 
-            size_t pos = line.find(';');
+            size_t pos = line.find(',');
             if (pos == string::npos) continue;
 
             string name = line.substr(0, pos);

@@ -83,30 +83,12 @@ int main() {
             }
         }
         else if (choice == 3) { 
-            char discountChoice;
-            string discountCode;
-            double discount = 0;
-            
-            cout << "DO YOU HAVE A DISCOUNT CODE? (Y/N): ";
-            cin >> discountChoice;
-            cin.ignore();
-            
-            if (discountChoice == 'Y' || discountChoice == 'y') {
-                cout << "ENTER DISCOUNT CODE: ";
-                getline(cin, discountCode);
-                
-                discount = cashier.calculateDiscount(discountCode);
-                if (discount > 0) {
-                    cout << "\nDISCOUNT CODE APPLIED! YOU GET 10% OFF!\n";
-                } else {
-                    cout << "\nINVALID DISCOUNT CODE!\n";
-                }
-            }
+            char payment;
             
             cout << "\nCHECKING OUT..." << endl;
             double subtotal = cashier.calculateSubtotal();
             double tax = cashier.calculateTax();
-            double total = cashier.calculateTotal(discount);
+            double total = cashier.calculateTotal();
             
             cout << "\n=========================\n";
             cout << "ITEMS\n";
@@ -118,31 +100,20 @@ int main() {
             cout << "=========================\n";
             cout << "SUBTOTAL: Rp." << subtotal << endl;
             cout << "TAX (10%): Rp." << tax << endl;
-            if (discount > 0) {
-                cout << "DISCOUNT: -Rp." << discount << endl;
-            }
+
             cout << "=========================\n";
             cout << "TOTAL AMOUNT: Rp." << total << endl;
             
-            string paymentMethod;
-            cout << "HOW WOULD YOU LIKE TO PAY? (CASH/CARD/QRIS): ";
-            getline(cin, paymentMethod);
-            
-            if (paymentMethod == "CASH" || paymentMethod == "cash") {
-                double cash;
-                cout << "ENTER CASH AMOUNT: Rp.";
-                cin >> cash;
-                cin.ignore();
-                
-                if (cashier.validatePayment(paymentMethod, cash, total)) {
-                    cout << "CHANGE: Rp." << cashier.calculateChange(cash, total) << endl;
-                } else {
-                    cout << "INSUFFICIENT CASH!" << endl;
-                    continue;
-                }
-            } else if (cashier.validatePayment(paymentMethod, 0, total)) {
+            cout << "CONTINUE TO PAYMENT? (Y/n): ";
+            cin >> payment;
+
+            if (payment == 'Y' || payment == 'y' || payment == '\n') { 
+
                 cout << "PROCESSING PAYMENT..." << endl;
                 cout << "PAYMENT SUCCESSFUL!" << endl;
+            } else if (payment == 'n' || payment == 'N') {
+                cout << "PAYMENT CANCELLED!\n";
+                continue;
             } else {
                 cout << "INVALID PAYMENT METHOD!" << endl;
                 continue;

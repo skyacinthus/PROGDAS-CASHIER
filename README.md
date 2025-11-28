@@ -38,32 +38,6 @@ Sistem memungkinkan pelanggan melakukan pemesanan, melihat total belanja, melaku
 
 ---
 
-## 🏗️ Teknologi yang Digunakan
-
-* **C++**
-* **Qt 6 Framework**
-* **MinGW 64-bit Compiler**
-* File handling (`Menu.txt`)
-* PDF printing dengan Qt
-
----
-
-## 🍩 Tentang Proyek
-
-Proyek ini dibuat untuk tujuan pembelajaran dan mencakup:
-
-* Pengembangan GUI dengan Qt
-* Dasar-dasar pemrograman C++
-* File I/O
-* Pemrograman berbasis objek
-* Simulasi pembayaran
-* Pembuatan PDF
-* Perancangan antarmuka yang ramah pengguna
-
-Toko fiksi yang digunakan dalam sistem adalah **Dopiyo Donuts**.
-
----
-
 ## 🧩 Fitur
 
 ### **F-01 — Input Customer Name**
@@ -132,11 +106,11 @@ Nama Donut;Harga
 Contoh:
 
 ```
-Tripple Choco Boom;20000
-Tiramisu Lotus Ring;25000
-Matcha Red Bean;30000
-American Cheese Boom;20000
-Red Velvet Cheese Boom;25000
+Tripple Choco Boom, 20000
+Tiramisu Lotus Ring, 25000
+Matcha Red Bean, 30000
+American Cheese Boom, 20000
+Red Velvet Cheese Boom, 25000
 ```
 
 Cara Mengubah / Menambah Menu
@@ -145,7 +119,7 @@ Cara Mengubah / Menambah Menu
 2. Tambahkan baris baru dengan format yang sama:
 
 ```
-Nama Produk;Harga
+Nama Produk, Harga
 ```
 3. Simpan
 4. Jalankan ulang program
@@ -156,5 +130,31 @@ Program akan secara otomatis memuat menu terbaru saat dijalankan. Tidak perlu me
 
 ## ▶️ Demo & Screenshots
 
+
+---
+
+## 🏗️ Teknologi yang Digunakan
+
+* **C++**
+* **Qt 6 Framework**
+* **MinGW 64-bit Compiler**
+* File handling (`Menu.txt`)
+* PDF printing dengan Qt
+
+---
+
+## 🍩 Tentang Proyek
+
+Proyek ini dibuat untuk tujuan pembelajaran dan mencakup:
+
+* Pengembangan GUI dengan Qt
+* Dasar-dasar pemrograman C++
+* File I/O
+* Pemrograman berbasis objek
+* Simulasi pembayaran
+* Pembuatan PDF
+* Perancangan antarmuka yang ramah pengguna
+
+Toko fiksi yang digunakan dalam sistem adalah **Dopiyo Donuts**.
 
 ---

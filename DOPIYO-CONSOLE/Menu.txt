@@ -1,5 +1,5 @@
-Tripple Choco Boom;20000
-Tiramisu Lotus Ring;25000
-Matcha Red Bean;30000
-American Cheese Boom;20000
-Red Velvet Cheese Boom;25000
+Tripple Choco Boom,20000
+Tiramisu Lotus Ring,25000
+Matcha Red Bean,30000
+American Cheese Boom,20000
+Red Velvet Cheese Boom,25000
