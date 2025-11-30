@@ -12,37 +12,45 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets PrintSupport)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets PrintSupport)
 
+# Add include directory
+include_directories(include)
+
 add_executable(Progdas-Final-Project
-  main.cpp
-  mainwindow.h
-  mainwindow.cpp
-  mainwindow.ui
+    src/main.cpp
 
-  menuorder.h
-  menuorder.cpp
-  menuorder.ui
+    src/mainwindow.cpp
+    include/mainwindow.h
+    ui/mainwindow.ui
 
-  cart.h
-  cart.cpp
-  cart.ui
+    src/menuorder.cpp
+    include/menuorder.h
+    ui/menuorder.ui
 
-  nota.h
-  nota.cpp
-  nota.ui
+    src/cart.cpp
+    include/cart.h
+    ui/cart.ui
 
-  payment.h
-  payment.cpp
-  payment.ui
+    src/nota.cpp
+    include/nota.h
+    ui/nota.ui
 
-  fotoQR.qrc
-  customername.h customername.cpp
-  ordermanager.h ordermanager.cpp
+    src/payment.cpp
+    include/payment.h
+    ui/payment.ui
+
+    src/customername.cpp
+    include/customername.h
+
+    src/ordermanager.cpp
+    include/ordermanager.h
+
+    resources/fotoQR.qrc
 )
-target_link_libraries(Progdas-Final-Project PRIVATE
-  Qt${QT_VERSION_MAJOR}::Core
-  Qt${QT_VERSION_MAJOR}::Widgets
-  Qt${QT_VERSION_MAJOR}::PrintSupport
 
+target_link_libraries(Progdas-Final-Project PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::PrintSupport
 )
 
 include(GNUInstallDirs)
