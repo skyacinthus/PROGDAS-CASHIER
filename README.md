@@ -75,6 +75,20 @@ Fitur untuk mencetak nota ke dalam file **PDF**.
 
 ## 🚀 Cara Menjalankan
 
+### **CONSOLE**
+1. Pastikan Anda memiliki compiler C++ (contoh: g++).
+2. Pastikan sudah berada di Folder 'DOPIYO-CONSOLE' (cd DOPIYO-CONSOLE pada terminal).
+3. compile dengan command:
+
+```
+g++ main.cpp .cpp -o cashier
+```
+4. Jalankan program:
+
+```
+./cashier
+```
+
 ### **GUI (Hanya Windows)**
 
 Saat ini, aplikasi GUI menghasilkan **PE32 executable** yang hanya berjalan di Windows.
@@ -130,6 +144,12 @@ Program akan secara otomatis memuat menu terbaru saat dijalankan. Tidak perlu me
 ## ▶️ Demo & Screenshots
 
 
+https://github.com/user-attachments/assets/fcd8480d-c1dd-44ad-9941-8e9dd1cd8c2a
+
+### PRINTED RECEIPT
+<img width="174" height="487" alt="image" src="https://github.com/user-attachments/assets/41953bb5-f5f9-464a-806e-358a1a4f7740" />
+
+
 ---
 
 ## 🏗️ Teknologi yang Digunakan
@@ -152,8 +172,6 @@ Proyek ini dibuat untuk tujuan pembelajaran dan mencakup:
 * Pemrograman berbasis objek
 * Simulasi pembayaran
 * Pembuatan PDF
-* Perancangan antarmuka yang ramah pengguna
-
-Toko fiksi yang digunakan dalam sistem adalah **Dopiyo Donuts**.
+* Perancangan UI yang ramah pengguna
 
 ---
